@@ -4,8 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Form in Table</title>
-        <link rel="stylesheet" href="styles.css">
-    <body>
         <style>
             form {
                 max-width: 500px;
@@ -54,8 +52,28 @@
                 justify-content: left;
             }
         </style>
+        <script>
+            function validateForm() {
+                const email = document.forms["userForm"]["email"].value;
+                const age = document.forms["userForm"]["age"].value;
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+                if (!emailPattern.test(email)) {
+                    alert("Invalid email format.");
+                    return false;
+                }
+    
+                if (isNaN(age) || age <= 0) {
+                    alert("Age must be a positive number.");
+                    return false;
+                }
+    
+                return true;
+            }
+        </script>
     </head>
-        <form>
+    <body>
+        <form name="userForm" method="post" onsubmit="return validateForm()">
             <table>
                 <tr>
                     <td><label for="name">Name:</label></td>
@@ -69,17 +87,17 @@
                     <td><label for="Age">Age:</label></td>
                     <td><input type="number" id="age" name="age" min="1" required></td>
                 </tr>
-            <tr>
+                <tr>
                     <td><label for="date_of_birth">Date of Birth:</label></td>
                     <td><input type="date" id="date_of_birth" name="date_of_birth" required></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="button-row">
-                        <button type="View Details" style="color:deep grey;align-items: right">View Details</button>
-                        <button type="submit" style="background-color:blue;color:white;align-items: right">Submit</button>
+                        <button type="submit" value="Submit" style="background-color:blue;color:white;align-items: right">Submit</button>
                     </td>
                 </tr>
             </table>
         </form>
+        <a href="{{ url_for('entries') }}">View All Entries</a>
     </body>
 </html>
