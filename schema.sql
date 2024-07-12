@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS entries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    age INTEGER NOT NULL,
+    date_of_birth TEXT NOT NULL
+)
