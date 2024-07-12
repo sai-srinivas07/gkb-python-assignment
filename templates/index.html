@@ -3,8 +3,83 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+        <title>Form in Table</title>
+        <link rel="stylesheet" href="styles.css">
     <body>
-        <h1>Web App</h1>
+        <style>
+            form {
+                max-width: 500px;
+                margin: auto;
+                padding: 1em;
+                border: 0.5px solid #ccc; /* Reduced border size */
+                border-radius: 1em;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            td {
+                padding: 0.5em;
+                text-align: left; /* Left align all table cells */
+            }
+
+            label {
+                display: inline-block;
+                width: 100%;
+                font-weight: bold;
+                color: #333;
+                font-size: 1.1em;
+            }
+
+            input, textarea {
+                width: 100%;
+                padding: 0.5em;
+                border: 1px solid #ccc;
+                border-radius: 0.25em;
+                box-sizing: border-box; /* Ensure padding doesn't affect the total width */
+            }
+
+            .button-row {
+                text-align: right; /* Left align buttons */
+                padding-top: 1em;
+            }
+
+            .button-row button {
+                
+                border: none;
+                border-radius: 0.25em;
+                cursor: pointer;
+                justify-content: left;
+            }
+        </style>
+    </head>
+        <form>
+            <table>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" name="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="Age">Age:</label></td>
+                    <td><input type="number" id="age" name="age" min="1" required></td>
+                </tr>
+            <tr>
+                    <td><label for="date_of_birth">Date of Birth:</label></td>
+                    <td><input type="date" id="date_of_birth" name="date_of_birth" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="button-row">
+                        <button type="View Details" style="color:deep grey;align-items: right">View Details</button>
+                        <button type="submit" style="background-color:blue;color:white;align-items: right">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </body>
-</html>    
+</html>
