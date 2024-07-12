@@ -91,13 +91,18 @@
                     <td><label for="date_of_birth">Date of Birth:</label></td>
                     <td><input type="date" id="date_of_birth" name="date_of_birth" required></td>
                 </tr>
-                <tr>
-                    <td colspan="2" class="button-row">
-                        <button type="submit" value="Submit" style="background-color:blue;color:white;align-items: right">Submit</button>
-                    </td>
-                </tr>
+               
             </table>
+                    
+            <div style="text-align: center;">
+                <button type="submit" style="background-color: blue; color: white;margin-top: 10px;">Submit</button>
+                <a style="margin-left: 20px;" href="{{ url_for('entries') }}">View All Entries</a>
+            </div>
+                   
+                   
+                
+           
         </form>
-        <a href="{{ url_for('entries') }}">View All Entries</a>
+        
     </body>
 </html>
