@@ -26,8 +26,12 @@ def index():
 
         conn = get_db_connection()
         c = conn.cursor()
-        c.execute('Insert into entries (name, email, age, date_of_birth) values (?, ?, ?, ?)', (name, email, int(age), date_of_birth))
-        conn.commit()
+        try:
+            c.execute('Insert into entries (name, email, age, date_of_birth) values (?, ?, ?, ?)', (name, email, int(age), date_of_birth))
+            conn.commit()
+        except sqlite3.IntegrityError:
+            conn.close()
+            return "Error: Email already exists.", 400
         conn.close()
         return redirect(url_for('entries'))
 
